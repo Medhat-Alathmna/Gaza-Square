@@ -1,0 +1,49 @@
+<svg width="560" height="480" viewBox="0 0 560 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="560" height="480" rx="32" fill="#05060A"/>
+  <rect x="24" y="24" width="512" height="432" rx="28" fill="url(#paint0_linear)" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <g filter="url(#shadow)">
+    <rect x="72" y="84" width="416" height="256" rx="24" fill="rgba(6,10,18,0.9)" stroke="#17FFDC" stroke-width="1.5"/>
+    <rect x="96" y="120" width="180" height="10" rx="5" fill="#17FFDC" opacity="0.8"/>
+    <rect x="96" y="146" width="244" height="10" rx="5" fill="#FF9F40" opacity="0.8"/>
+    <rect x="96" y="172" width="148" height="10" rx="5" fill="#17FFDC" opacity="0.7"/>
+    <rect x="96" y="198" width="180" height="10" rx="5" fill="#6E6E6E" opacity="0.6"/>
+    <rect x="112" y="232" width="336" height="80" rx="16" fill="rgba(10,16,28,0.9)"/>
+    <rect x="128" y="248" width="120" height="48" rx="12" fill="#17FFDC" fill-opacity="0.15" stroke="#17FFDC" stroke-width="1.2"/>
+    <rect x="264" y="248" width="168" height="48" rx="12" fill="#111424" stroke="#2CE0B9" stroke-width="1.2"/>
+    <path d="M144 272H232" stroke="#17FFDC" stroke-width="3" stroke-linecap="round"/>
+    <path d="M296 272C296 261.507 304.507 253 315 253H391C401.493 253 410 261.507 410 272C410 282.493 401.493 291 391 291H315C304.507 291 296 282.493 296 272Z" fill="url(#paint1_linear)"/>
+    <circle cx="208" cy="328" r="36" fill="#11182C" stroke="#17FFDC" stroke-width="1.4"/>
+    <circle cx="208" cy="328" r="18" fill="#17FFDC" fill-opacity="0.2" stroke="#17FFDC" stroke-width="1.4"/>
+    <path d="M208 316V340M196 328H220" stroke="#17FFDC" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M336 300C348 300 356 316 364 328C372 340 380 356 392 356C404 356 412 340 416 328" stroke="#FF9F40" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g opacity="0.35">
+    <path d="M40 420C88 396 160 380 244 380C328 380 400 396 448 420" stroke="url(#paint2_linear)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="120" cy="96" r="12" fill="#17FFDC" fill-opacity="0.2" stroke="#17FFDC"/>
+    <circle cx="444" cy="96" r="12" fill="#FF9F40" fill-opacity="0.2" stroke="#FF9F40"/>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear" x1="24" y1="24" x2="536" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050B12"/>
+      <stop offset="1" stop-color="#0F0F17"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="296" y1="272" x2="410" y2="272" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1CFFD7"/>
+      <stop offset="1" stop-color="#0B9E83"/>
+    </linearGradient>
+    <linearGradient id="paint2_linear" x1="40" y1="400" x2="448" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17FFDC"/>
+      <stop offset="1" stop-color="#FF9F40"/>
+    </linearGradient>
+    <filter id="shadow" x="52" y="64" width="456" height="316" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feGaussianBlur in="BackgroundImage" stdDeviation="8"/>
+      <feComposite in2="SourceAlpha" operator="in" result="effect0_backgroundBlur"/>
+      <feOffset dy="6"/>
+      <feGaussianBlur stdDeviation="14"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.09 0 0 0 0 0.36 0 0 0 0 0.28 0 0 0 0.4 0"/>
+      <feBlend mode="normal" in2="effect0_backgroundBlur" result="effect1_dropShadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+</svg>
