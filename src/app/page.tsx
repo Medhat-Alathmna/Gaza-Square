@@ -11,7 +11,7 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import type { Testimonial } from "@/components/sections/TestimonialsSection";
 import { Footer } from "@/layouts/Footer";
 import type { SocialLink } from "@/layouts/Footer";
-import { Header } from "@/layouts/Header";
+import { FloatingHeader } from "@/layouts/FloatingHeader";
 import type { NavLink } from "@/layouts/Navbar";
 
 const navLinks: NavLink[] = [
@@ -144,15 +144,12 @@ const FOOTER_TAGLINE = "Smart software. Human touch.";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#030303] text-white">
+      <FloatingHeader links={navLinks} ctaLabel={CTA.label} ctaHref={CTA.href} />
       <div className="grid-overlay pointer-events-none absolute inset-0 opacity-60" aria-hidden />
       <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#17ffdc33] blur-[160px]" aria-hidden />
       <div className="pointer-events-none absolute left-8 bottom-8 h-48 w-48 rounded-full bg-[#ff9f4033] blur-[120px]" aria-hidden />
 
       <div className="relative z-10 flex flex-col gap-16 pb-24">
-        <div className="mx-auto w-full max-w-6xl px-6 pt-10 sm:px-10 lg:px-12">
-          <Header links={navLinks} ctaLabel={CTA.label} ctaHref={CTA.href} />
-        </div>
-
         <HeroSection stats={stats} />
 
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 sm:px-10 lg:px-12">

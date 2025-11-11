@@ -38,4 +38,3 @@ export function useSectionInView({ threshold = 0.35, rootMargin = "0px 0px -10% 
 
   return { ref, isVisible };
 }
-
