@@ -38,10 +38,7 @@ export function ServicesSection({ services }: ServicesSectionProps) {
           <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">Services</p>
           <h2 className="font-display text-3xl text-white sm:text-4xl">Built for bold transformations</h2>
         </div>
-        <p className="reveal-item max-w-xl text-white/70" data-anim="right">
-          Senior product strategists and engineers build modules that respect the nitty-gritty of your business, from
-          finance approvals to last-mile fulfillment.
-        </p>
+
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">

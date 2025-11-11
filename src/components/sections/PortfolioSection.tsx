@@ -31,10 +31,7 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
           <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">Portfolio / Case Studies</p>
           <h2 className="font-display text-3xl text-white sm:text-4xl">Proof in production</h2>
         </div>
-        <p className="reveal-item max-w-2xl text-white/70" data-anim="right">
-          A sampling of the operating systems, booking tools, and ERP suites we have launched in Gaza, the Gulf, and
-          Europe. Every engagement integrates tightly with legacy hardware and modern cloud.
-        </p>
+       
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">
