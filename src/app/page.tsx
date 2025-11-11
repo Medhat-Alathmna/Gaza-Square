@@ -1,4 +1,3 @@
-import { CircuitIcon, LayersIcon, MobileIcon, SparkIcon } from "@/components/icons";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { ERPHighlightsSection } from "@/components/sections/ERPHighlightsSection";
 import type { Feature, Reason } from "@/components/sections/ERPHighlightsSection";
@@ -33,25 +32,25 @@ const services: Service[] = [
     title: "Custom ERP Development",
     description:
       "Purpose-built ERP cores tailored to retail, manufacturing, and service workflows with obsessive attention to permissions, automation, and analytics.",
-    Icon: CircuitIcon,
+    icon: "circuit",
   },
   {
     title: "Web Application Development",
     description:
       "Angular, React, and Django teams crafting rapid-response portals, partner dashboards, and customer-facing layers that plug directly into your ERP.",
-    Icon: LayersIcon,
+    icon: "layers",
   },
   {
     title: "Mobile App Development",
     description:
       "Ionic + Capacitor powered field apps, digital checklists, and executive copilots that work offline and sync intelligently when devices reconnect.",
-    Icon: MobileIcon,
+    icon: "mobile",
   },
   {
     title: "API Integration & AI Solutions",
     description:
       "Secure APIs, RPA, and AI copilots that connect CRMs, POS, and data lakes. We pair business logic with AI-assisted predictions you can trust.",
-    Icon: SparkIcon,
+    icon: "spark",
   },
 ];
 
@@ -146,21 +145,27 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#030303] text-white">
       <div className="grid-overlay pointer-events-none absolute inset-0 opacity-60" aria-hidden />
-      <div className="pointer-events-none absolute right-0 top-0 h-72 w-72 rounded-full bg-[#17ffdc33] blur-[160px]" aria-hidden />
+      <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#17ffdc33] blur-[160px]" aria-hidden />
       <div className="pointer-events-none absolute left-8 bottom-8 h-48 w-48 rounded-full bg-[#ff9f4033] blur-[120px]" aria-hidden />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col gap-20 px-6 pb-24 pt-10 sm:px-10 lg:px-12">
-        <Header links={navLinks} ctaLabel={CTA.label} ctaHref={CTA.href} />
+      <div className="relative z-10 flex flex-col gap-16 pb-24">
+        <div className="mx-auto w-full max-w-6xl px-6 pt-10 sm:px-10 lg:px-12">
+          <Header links={navLinks} ctaLabel={CTA.label} ctaHref={CTA.href} />
+        </div>
+
         <HeroSection stats={stats} />
-        <ServicesSection services={services} />
-        <ERPHighlightsSection features={erpFeatures} reasons={reasonsToChooseUs} />
-        <PortfolioSection projects={portfolioProjects} />
-        <TestimonialsSection testimonials={testimonials} />
-        <ContactSection
-          whatsappUrl={CONTACT_DETAILS.whatsappUrl}
-          supportEmail={CONTACT_DETAILS.supportEmail}
-        />
-        <Footer socialLinks={socialLinks} tagline={FOOTER_TAGLINE} />
+
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 sm:px-10 lg:px-12">
+          <ServicesSection services={services} />
+          <ERPHighlightsSection features={erpFeatures} reasons={reasonsToChooseUs} />
+          <PortfolioSection projects={portfolioProjects} />
+          <TestimonialsSection testimonials={testimonials} />
+          <ContactSection
+            whatsappUrl={CONTACT_DETAILS.whatsappUrl}
+            supportEmail={CONTACT_DETAILS.supportEmail}
+          />
+          <Footer socialLinks={socialLinks} tagline={FOOTER_TAGLINE} />
+        </div>
       </div>
     </div>
   );

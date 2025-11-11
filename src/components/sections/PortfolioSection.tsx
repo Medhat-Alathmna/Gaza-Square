@@ -1,4 +1,9 @@
+'use client';
+
 import Image from "next/image";
+import type { CSSProperties } from "react";
+
+import { useSectionInView } from "@/hooks/useSectionInView";
 
 export type PortfolioProject = {
   title: string;
@@ -12,22 +17,34 @@ type PortfolioSectionProps = {
 };
 
 export function PortfolioSection({ projects }: PortfolioSectionProps) {
+  const { ref, isVisible } = useSectionInView({ threshold: 0.25 });
+
   return (
-    <section id="projects" className="space-y-8">
+    <section
+      id="projects"
+      ref={ref}
+      data-section-visible={isVisible ? "true" : "false"}
+      className="space-y-8"
+    >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div>
+        <div className="reveal-item" data-anim="left">
           <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">Portfolio / Case Studies</p>
           <h2 className="font-display text-3xl text-white sm:text-4xl">Proof in production</h2>
         </div>
-        <p className="max-w-2xl text-white/70">
+        <p className="reveal-item max-w-2xl text-white/70" data-anim="right">
           A sampling of the operating systems, booking tools, and ERP suites we have launched in Gaza, the Gulf, and
           Europe. Every engagement integrates tightly with legacy hardware and modern cloud.
         </p>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">
-        {projects.map((project) => (
-          <article key={project.title} className="group flex flex-col gap-5 rounded-3xl border border-white/10 bg-[#080911] p-6">
+        {projects.map((project, index) => (
+          <article
+            key={project.title}
+            className="reveal-item group flex flex-col gap-5 rounded-3xl border border-white/10 bg-[#080911] p-6 shadow-[0_0_0_rgba(0,0,0,0)] transition duration-500 hover:-translate-y-1 hover:border-[#17ffdc]/40 hover:shadow-[0_35px_80px_rgba(0,0,0,0.35)]"
+            data-anim="zoom-out"
+            style={{ "--stagger": `${index * 90}ms` } as CSSProperties}
+          >
             <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40">
               <Image
                 src={project.image}
