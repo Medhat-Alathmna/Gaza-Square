@@ -25,7 +25,12 @@ export function Footer({ socialLinks, tagline }: FooterProps) {
             </Link>
           ))}
         </div>
-        <p>&copy; {new Date().getFullYear()} Gaza Square. All rights reserved.</p>
+        <div className="text-right">
+          <p>&copy; {new Date().getFullYear()} Gaza Square. All rights reserved.</p>
+          <p className="text-[0.7rem] uppercase tracking-[0.4em] text-white/40">
+            Signature · Medhat&nbsp;S.&nbsp;Alathmna
+          </p>
+        </div>
       </div>
     </footer>
   );
