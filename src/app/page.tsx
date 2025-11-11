@@ -149,7 +149,7 @@ export default function Home() {
       <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#17ffdc33] blur-[160px]" aria-hidden />
       <div className="pointer-events-none absolute left-8 bottom-8 h-48 w-48 rounded-full bg-[#ff9f4033] blur-[120px]" aria-hidden />
 
-      <div className="relative z-10 flex flex-col gap-16 pb-24">
+      <div style={{'backgroundColor':'#000302'}} className="relative z-10 flex flex-col gap-16 pb-24">
         <HeroSection stats={stats} />
 
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 sm:px-10 lg:px-12">
