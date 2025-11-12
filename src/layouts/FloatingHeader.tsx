@@ -70,7 +70,7 @@ export function FloatingHeader({ links, ctaLabel, ctaHref, locale, onChangeLocal
               </svg>
             </button>
             {open && (
-              <ul className="absolute right-0 z-50 mt-2 w-44 overflow-hidden rounded-2xl border border-white/15 bg-[#0b0b0f] p-1 shadow-[0_15px_60px_rgba(0,0,0,0.5)]">
+              <ul className="absolute right-0 z-50 mt-2 w-15 overflow-hidden rounded-2xl border border-white/15 bg-[#0b0b0f] p-1 shadow-[0_15px_60px_rgba(0,0,0,0.5)]">
                 {languages.map((lng) => (
                   <li key={lng.code}>
                     <button

@@ -330,44 +330,47 @@ export default function Home() {
   return (
     <div lang={langAttr} dir={dir} className="relative min-h-screen bg-[#030303] text-white">
       <FloatingHeader
-        links={content.navLinks}
-        ctaLabel={content.ctaLabel}
-        ctaHref={CTA.href}
-        locale={locale}
-        onChangeLocale={(next) => setLocale(next)}
-        languageSelectLabel={content.languageToggleLabel}
+      links={content.navLinks}
+      ctaLabel={content.ctaLabel}
+      ctaHref={CTA.href}
+      locale={locale}
+      onChangeLocale={(next) => setLocale(next)}
+      languageSelectLabel={content.languageToggleLabel}
       />
       <div className="grid-overlay pointer-events-none absolute inset-0 opacity-60" aria-hidden />
-      <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#17ffdc33] blur-[160px]" aria-hidden />
+      <div
+      className={`pointer-events-none absolute top-0 h-72 w-72 rounded-full bg-[#17ffdc33] blur-[160px] ${locale === 'ar' ? 'right-0' : 'left-0'}`}
+      aria-hidden
+      />
       <div className="pointer-events-none absolute left-8 bottom-8 h-48 w-48 rounded-full bg-[#ff9f4033] blur-[120px]" aria-hidden />
 
       <div className="relative z-10 flex flex-col gap-16 pb-24">
-        <HeroSection stats={stats} copy={content.hero} />
+      <HeroSection stats={stats} copy={content.hero} />
 
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 sm:px-10 lg:px-12">
-          <ServicesSection
-            services={content.servicesData}
-            eyebrow={content.servicesCopy.eyebrow}
-            title={content.servicesCopy.title}
-            description={content.servicesCopy.description}
-            focusLabel={content.servicesCopy.focusLabel}
-            cardCtaLabel={content.servicesCopy.cardCtaLabel}
-          />
-          <ERPHighlightsSection features={erpFeatures} reasons={reasonsToChooseUs} copy={content.erpCopy} />
-          <PortfolioSection
-            projects={portfolioProjects}
-            eyebrow={content.portfolioCopy.eyebrow}
-            title={content.portfolioCopy.title}
-            description={content.portfolioCopy.description}
-          />
-          <TestimonialsSection testimonials={testimonials} copy={content.testimonialsCopy} />
-          <ContactSection
-            whatsappUrl={CONTACT_DETAILS.whatsappUrl}
-            supportEmail={CONTACT_DETAILS.supportEmail}
-            copy={content.contactCopy}
-          />
-          <Footer socialLinks={socialLinks} tagline={content.footerTagline} />
-        </div>
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 sm:px-10 lg:px-12">
+        <ServicesSection
+        services={content.servicesData}
+        eyebrow={content.servicesCopy.eyebrow}
+        title={content.servicesCopy.title}
+        description={content.servicesCopy.description}
+        focusLabel={content.servicesCopy.focusLabel}
+        cardCtaLabel={content.servicesCopy.cardCtaLabel}
+        />
+        <ERPHighlightsSection features={erpFeatures} reasons={reasonsToChooseUs} copy={content.erpCopy} />
+        <PortfolioSection
+        projects={portfolioProjects}
+        eyebrow={content.portfolioCopy.eyebrow}
+        title={content.portfolioCopy.title}
+        description={content.portfolioCopy.description}
+        />
+        <TestimonialsSection testimonials={testimonials} copy={content.testimonialsCopy} />
+        <ContactSection
+        whatsappUrl={CONTACT_DETAILS.whatsappUrl}
+        supportEmail={CONTACT_DETAILS.supportEmail}
+        copy={content.contactCopy}
+        />
+        <Footer socialLinks={socialLinks} tagline={content.footerTagline} />
+      </div>
       </div>
     </div>
   );
