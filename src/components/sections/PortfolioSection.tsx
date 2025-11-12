@@ -12,11 +12,17 @@ export type PortfolioProject = {
   tag: string;
 };
 
-type PortfolioSectionProps = {
-  projects: PortfolioProject[];
+export type PortfolioCopy = {
+  eyebrow: string;
+  title: string;
+  description: string;
 };
 
-export function PortfolioSection({ projects }: PortfolioSectionProps) {
+type PortfolioSectionProps = {
+  projects: PortfolioProject[];
+} & PortfolioCopy;
+
+export function PortfolioSection({ projects, eyebrow, title, description }: PortfolioSectionProps) {
   const { ref, isVisible } = useSectionInView({ threshold: 0.25 });
 
   return (
@@ -28,10 +34,12 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="reveal-item" data-anim="left">
-          <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">Portfolio / Case Studies</p>
-          <h2 className="font-display text-3xl text-white sm:text-4xl">Proof in production</h2>
+          <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">{eyebrow}</p>
+          <h2 className="font-display text-3xl text-white sm:text-4xl">{title}</h2>
         </div>
-       
+        <p className="reveal-item max-w-2xl text-white/70" data-anim="right">
+          {description}
+        </p>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">

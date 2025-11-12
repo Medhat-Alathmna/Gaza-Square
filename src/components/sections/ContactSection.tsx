@@ -5,12 +5,30 @@ import type { CSSProperties } from "react";
 
 import { useSectionInView } from "@/hooks/useSectionInView";
 
+export type ContactCopy = {
+  eyebrow: string;
+  title: string;
+  fastTitle: string;
+  whatsappLabel: string;
+  emailLabel: string;
+  officeHours: string;
+  buttonLabel: string;
+  fields: {
+    name: string;
+    email: string;
+    phone: string;
+    company: string;
+    message: string;
+  };
+};
+
 type ContactSectionProps = {
   whatsappUrl: string;
   supportEmail: string;
+  copy: ContactCopy;
 };
 
-export function ContactSection({ whatsappUrl, supportEmail }: ContactSectionProps) {
+export function ContactSection({ whatsappUrl, supportEmail, copy }: ContactSectionProps) {
   const { ref, isVisible } = useSectionInView({ threshold: 0.2 });
 
   return (
@@ -21,20 +39,20 @@ export function ContactSection({ whatsappUrl, supportEmail }: ContactSectionProp
       className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]"
     >
       <div className="reveal-item space-y-6 rounded-3xl border border-white/10 bg-[#07070d] p-8" data-anim="left">
-        <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">Contact</p>
-        <h2 className="font-display text-3xl text-white">Let&apos;s architect your ERP.</h2>
+        <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">{copy.eyebrow}</p>
+        <h2 className="font-display text-3xl text-white">{copy.title}</h2>
 
         <form className="space-y-5">
           <div className="grid gap-5 sm:grid-cols-2">
             <Field
-              label="Name"
+              label={copy.fields.name}
               type="text"
               name="name"
               placeholder="Amal Hasan"
               style={{ "--stagger": "60ms" } as CSSProperties}
             />
             <Field
-              label="Email"
+              label={copy.fields.email}
               type="email"
               name="email"
               placeholder="you@company.com"
@@ -43,14 +61,14 @@ export function ContactSection({ whatsappUrl, supportEmail }: ContactSectionProp
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
             <Field
-              label="Phone"
+              label={copy.fields.phone}
               type="tel"
               name="phone"
               placeholder="+970 599 123 456"
               style={{ "--stagger": "160ms" } as CSSProperties}
             />
             <Field
-              label="Company"
+              label={copy.fields.company}
               type="text"
               name="company"
               placeholder="Gaza Mart"
@@ -58,7 +76,7 @@ export function ContactSection({ whatsappUrl, supportEmail }: ContactSectionProp
             />
           </div>
           <Field
-            label="Message"
+            label={copy.fields.message}
             as="textarea"
             name="message"
             placeholder="Tell us about the workflows you need to automate..."
@@ -70,28 +88,28 @@ export function ContactSection({ whatsappUrl, supportEmail }: ContactSectionProp
             data-anim="up"
             style={{ "--stagger": "320ms" } as CSSProperties}
           >
-            Send Request
+            {copy.buttonLabel}
           </button>
         </form>
       </div>
 
       <div className="reveal-item space-y-6 rounded-3xl border border-white/10 bg-[#05050a] p-8" data-anim="right">
-        <h3 className="font-display text-2xl text-white">Fast ways to reach us</h3>
+        <h3 className="font-display text-2xl text-white">{copy.fastTitle}</h3>
         <div className="space-y-4 text-white/80">
           <p className="reveal-item" data-anim="up" style={{ "--stagger": "80ms" } as CSSProperties}>
-            WhatsApp us directly:{" "}
+            {copy.whatsappLabel}{" "}
             <Link href={whatsappUrl} className="text-[#17ffdc] underline">
               +970 599 000 111
             </Link>
           </p>
           <p className="reveal-item" data-anim="up" style={{ "--stagger": "120ms" } as CSSProperties}>
-            Support email:{" "}
+            {copy.emailLabel}{" "}
             <Link href={`mailto:${supportEmail}`} className="text-[#17ffdc] underline">
               {supportEmail}
             </Link>
           </p>
           <p className="reveal-item" data-anim="up" style={{ "--stagger": "160ms" } as CSSProperties}>
-            Office hours: Sunday &ndash; Friday, 9:00 &ndash; 18:00 (GMT+2)
+            {copy.officeHours}
           </p>
         </div>
         <div className="reveal-item overflow-hidden rounded-2xl border border-white/10" data-anim="up" style={{ "--stagger": "220ms" } as CSSProperties}>
@@ -138,4 +156,3 @@ function Field({ label, type = "text", as, name, placeholder, style }: FieldProp
     </label>
   );
 }
-

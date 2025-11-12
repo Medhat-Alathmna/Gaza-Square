@@ -10,11 +10,22 @@ export type HeroStat = {
   value: string;
 };
 
-type HeroSectionProps = {
-  stats: HeroStat[];
+export type HeroCopy = {
+  badgeTitle: string;
+  badgeSubtitle: string;
+  headline: string;
+  subheadline: string;
+  paragraph: string;
+  primaryCta: string;
+  secondaryCta: string;
 };
 
-export function HeroSection({ stats }: HeroSectionProps) {
+type HeroSectionProps = {
+  stats: HeroStat[];
+  copy: HeroCopy;
+};
+
+export function HeroSection({ stats, copy }: HeroSectionProps) {
   const { ref, isVisible } = useSectionInView({ threshold: 0.55, rootMargin: "-5% 0px -10% 0px" });
 
   return (
@@ -31,8 +42,8 @@ export function HeroSection({ stats }: HeroSectionProps) {
               GS
             </div>
             <div>
-              <p className="text-[0.6rem] uppercase tracking-[0.5em] text-white/50">Command Studio</p>
-              <p className="text-xs text-white/40">Futuristic ERP</p>
+              <p className="text-[0.6rem] uppercase tracking-[0.5em] text-white/50">{copy.badgeTitle}</p>
+              <p className="text-xs text-white/40">{copy.badgeSubtitle}</p>
             </div>
           </div>
           <h1
@@ -40,10 +51,8 @@ export function HeroSection({ stats }: HeroSectionProps) {
             data-anim="up"
             style={{ "--stagger": "80ms" } as CSSProperties}
           >
-            Gaza Square
-            <span className="mt-3 block text-xl font-normal text-white/60 sm:text-2xl">
-              A command deck for AI-driven operations.
-            </span>
+            {copy.headline}
+            <span className="mt-3 block text-xl font-normal text-white/60 sm:text-2xl">{copy.subheadline}</span>
           </h1>
 
           <p
@@ -51,8 +60,7 @@ export function HeroSection({ stats }: HeroSectionProps) {
             data-anim="up"
             style={{ "--stagger": "140ms" } as CSSProperties}
           >
-            We orchestrate ERP, automation, and robotics telemetry under one neon-clear interface so Gaza-born teams can
-            deploy faster and stay in control.
+            {copy.paragraph}
           </p>
 
           <div
@@ -64,13 +72,13 @@ export function HeroSection({ stats }: HeroSectionProps) {
               href="#contact"
               className="inline-flex flex-1 items-center justify-center rounded-2xl bg-[#17ffdc] px-8 py-4 text-base font-semibold text-[#041511] shadow-[0_0_45px_rgba(23,255,220,0.5)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#12e3c4] hover:text-[#010504]"
             >
-              START YOUR DEMO
+              {copy.primaryCta}
             </Link>
             <Link
               href="#services"
               className="inline-flex flex-1 items-center justify-center rounded-2xl border border-[#17ffdc4d] px-8 py-4 text-base font-semibold text-[#17ffdc] transition duration-300 hover:-translate-y-0.5 hover:border-[#17ffdc] hover:text-[#9fffee]"
             >
-              Explore Our Services
+              {copy.secondaryCta}
             </Link>
           </div>
 

@@ -8,12 +8,21 @@ import { useSectionInView } from "@/hooks/useSectionInView";
 export type Feature = string;
 export type Reason = string;
 
+export type ERPHighlightsCopy = {
+  featuresEyebrow: string;
+  featuresTitle: string;
+  reasonsEyebrow: string;
+  reasonsTitle: string;
+  reasonsDescription: string;
+};
+
 type ERPHighlightsSectionProps = {
   features: Feature[];
   reasons: Reason[];
+  copy: ERPHighlightsCopy;
 };
 
-export function ERPHighlightsSection({ features, reasons }: ERPHighlightsSectionProps) {
+export function ERPHighlightsSection({ features, reasons, copy }: ERPHighlightsSectionProps) {
   const { ref, isVisible } = useSectionInView({ threshold: 0.3 });
 
   return (
@@ -24,10 +33,8 @@ export function ERPHighlightsSection({ features, reasons }: ERPHighlightsSection
       className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]"
     >
       <div className="reveal-item glow-panel space-y-6 rounded-3xl border border-white/10 bg-[#07070d] p-8" data-anim="left">
-        <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">ERP Features</p>
-        <h2 className="font-display text-3xl text-white">
-          Everything your team needs to run lean, fast, and transparent.
-        </h2>
+        <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">{copy.featuresEyebrow}</p>
+        <h2 className="font-display text-3xl text-white">{copy.featuresTitle}</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {features.map((feature, index) => (
             <div
@@ -47,8 +54,9 @@ export function ERPHighlightsSection({ features, reasons }: ERPHighlightsSection
         className="reveal-item glow-panel space-y-6 rounded-3xl border border-white/10 bg-gradient-to-br from-[#070b13] to-[#0b0f1d] p-8"
         data-anim="right"
       >
-        <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">Why choose us?</p>
-        <h3 className="font-display text-2xl text-white">We pair rigorous engineering with human-first service.</h3>
+        <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">{copy.reasonsEyebrow}</p>
+        <h3 className="font-display text-2xl text-white">{copy.reasonsTitle}</h3>
+        <p className="text-white/80">{copy.reasonsDescription}</p>
         <ul className="space-y-4 text-white/80">
           {reasons.map((reason, index) => (
             <li
@@ -68,4 +76,3 @@ export function ERPHighlightsSection({ features, reasons }: ERPHighlightsSection
     </section>
   );
 }
-

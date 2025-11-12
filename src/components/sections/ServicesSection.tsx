@@ -19,11 +19,26 @@ export type Service = {
   icon: IconName;
 };
 
-type ServicesSectionProps = {
-  services: Service[];
+export type ServicesCopy = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  focusLabel: string;
+  cardCtaLabel: string;
 };
 
-export function ServicesSection({ services }: ServicesSectionProps) {
+type ServicesSectionProps = {
+  services: Service[];
+} & ServicesCopy;
+
+export function ServicesSection({
+  services,
+  eyebrow,
+  title,
+  description,
+  focusLabel,
+  cardCtaLabel,
+}: ServicesSectionProps) {
   const { ref, isVisible } = useSectionInView({ threshold: 0.25 });
 
   return (
@@ -35,10 +50,12 @@ export function ServicesSection({ services }: ServicesSectionProps) {
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="reveal-item" data-anim="left">
-          <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">Services</p>
-          <h2 className="font-display text-3xl text-white sm:text-4xl">Built for bold transformations</h2>
+          <p className="text-xs uppercase tracking-[0.4em] text-[#17ffdc]">{eyebrow}</p>
+          <h2 className="font-display text-3xl text-white sm:text-4xl">{title}</h2>
         </div>
-
+        <p className="reveal-item max-w-xl text-white/70" data-anim="right">
+          {description}
+        </p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -59,12 +76,12 @@ export function ServicesSection({ services }: ServicesSectionProps) {
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <span className="text-sm uppercase tracking-widest text-white/60">Focus</span>
+                  <span className="text-sm uppercase tracking-widest text-white/60">{focusLabel}</span>
                 </div>
                 <h3 className="font-display text-2xl text-white">{service.title}</h3>
                 <p className="text-white/70">{service.description}</p>
                 <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-[#17ffdc]">
-                  Explore capability
+                  {cardCtaLabel}
                   <ArrowIcon className="h-4 w-4" />
                 </div>
               </div>
